@@ -20,9 +20,9 @@ const paths = {
 const optimization = () => {
 	if (isProd) {
 		const options = {
-			splitChunks: {
-				chunks: 'all'
-			}
+			// splitChunks: {
+			// 	chunks: 'all'
+			// }
 		}
 		options.minimizer = [
 			new TerserWebpackPlugin({
@@ -70,7 +70,6 @@ const copyPluginPatterns = () => {
 	}
 	return base
 }
-
 
 const config = {
 	mode: isDev ? "development" : "production",
