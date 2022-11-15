@@ -1,0 +1,16 @@
+// Заголовки, общие БЭМ блоки и прочее
+
+// Accessibility for screen reader
+
+// .visually-hidden {
+// 	position: absolute;
+// 	width: 1px;
+// 	height: 1px;
+// 	margin: -1px;
+// 	padding: 0;
+// 	overflow: hidden;
+// 	border: 0;
+// 	clip: rect(0 0 0 0);
+// }
+// <label for="email" class="visually-hidden">Email:</label>
+// <input id="email" type="text" class="form__input" placeholder="Email address">

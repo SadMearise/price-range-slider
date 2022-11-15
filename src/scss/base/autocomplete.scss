@@ -1,0 +1,39 @@
+// Форма автозаполнения с выпадающим списком при внесении данных
+// .wrapper {
+// 	position: relative;
+// 	display: inline-block;
+// 	&__input {
+// 		width: 100%;
+// 		border-bottom: 2px solid $color-blue-200;
+// 		padding-bottom: rem(6);
+// 		&[type=text] {
+// 			color: $color-dark-200;
+// 		}
+// 		&::placeholder {
+// 			color: $color-grey-100;
+// 		}
+// 	}
+// }
+
+// .autocomplete-items {
+// 	position: absolute;
+// 	z-index: 99;
+// 	top: calc(100% + rem(8));
+// 	left: 0;
+// 	right: 0;
+// 	border-radius: rem(5);
+// 	background-color: $color-white;
+// 	box-shadow: 0 2px 16px rgba(0, 0, 0, 15%);
+// 	& li {
+// 		padding: rem(12) 12px;
+// 		cursor: pointer;
+// 		color: $color-dark-200; 
+// 		&:hover {
+// 			background-color: $color-grey-100; 
+// 		}
+// 	}
+// }
+
+// .autocomplete-active {
+// 	background-color: $color-grey-100 !important; 
+// }

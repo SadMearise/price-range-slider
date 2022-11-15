@@ -1,0 +1,62 @@
+@mixin flexbox() {
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	font-size: 0;
+}
+
+@mixin anim($time, $delay) {
+	transition: all $time ease $delay;
+	-webkit-transition: all $time ease $delay;
+	-moz-transition: all $time ease $delay;
+	-ms-transition: all $time ease $delay;
+	-o-transition: all $time ease $delay;
+}
+
+// @mixin adaptive-value($property, $startSize, $minSize, $type) {
+// 	$addSize: $startSize - $minSize;
+// 	@if $type==1 {
+// 		// Только если меньше контейнера
+// 		#{$property}: $startSize + px;
+// 		@media (max-width: #{$containerWidth + px}) {
+// 			#{$property}: calc(#{$minSize + px} + #{$addSize} * ((100vw - 320px) / #{$containerWidth - 320}));
+// 		}
+// 	} @else if $type==2 {
+// 		// Только если больше контейнера
+// 		#{$property}: $startSize + px;
+// 		@media (min-width: #{$containerWidth + px}) {
+// 			#{$property}: calc(#{$minSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidth - 320}));
+// 		}
+// 	} @else {
+// 		// Всегда
+// 		#{$property}: calc(#{$minSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidth - 320}));
+// 	}
+// }
+
+@mixin adaptive-value($property, $maxSize, $minSize, $widthFrom: $containerWidth, $widthTo: $minWidth, $keepSize: 0) { 
+	$addSize: $maxSize - $minSize; 
+	@if $keepSize == 1 {
+		// В промежутке
+		@media (max-width: #{$widthFrom + px}) and (min-width: #{$widthTo + px}) { 
+			#{$property}: calc( 
+					#{$minSize + px} + #{$addSize} * ((100vw - #{$widthTo + px}) / #{$widthFrom - $widthTo}) 
+			); 
+		} 
+	} @else if $keepSize == 2 { 
+		// Только если меньше контейнера
+		@media (max-width: #{$widthFrom + px}) { 
+			#{$property}: calc( 
+					#{$minSize + px} + #{$addSize} * ((100vw - #{$widthTo + px}) / #{$widthFrom - $widthTo}) 
+			); 
+		} 
+	} @else if $keepSize == 3 { 
+		// Только если больше контейнера
+		@media (min-width: #{$widthFrom + px}) { 
+			#{$property}: calc(#{$minSize + px} + #{$addSize} * ((100vw - #{$widthTo + px}) / #{$maxWidth - $widthTo})); 
+		} 
+	} @else { 
+		#{$property}: calc(#{$minSize + px} + #{$addSize} * ((100vw - #{$widthTo + px}) / #{$maxWidth - $widthTo})); 
+	} 
+}

@@ -1,0 +1,141 @@
+// Библиотеки
+@use 'sass:math';
+
+// Подключаемые шрифты
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+// @import "fonts/fonts";
+
+// Функции
+@import 'base/functions';
+
+// Шрифт по умолчанию
+$fontFamily:"'Poppins', sans-serif";
+
+// Переменные
+$minWidth: 375;
+$maxWidth: 1440;
+$containerWidth: 1176; // Вписываем ширину контейнера как она есть
+$containerPadding: 40;
+$containerSidePadding: math.div($containerPadding, 2);
+$breakpoint1400: 1339.98;
+$breakpoint1200: 1199.98;
+$breakpoint992: 991.98;
+$breakpoint768: 767.98;
+$breakpoint576: 575.98;
+$breakpoint480: 479.98;
+$breakpoint375: 374.98;
+
+// font-weight
+$fw-200: 200;
+$fw-300: 300;
+$fw-400: 400;
+$fw-500: 500;
+$fw-600: 600;
+$fw-700: 700;
+
+// font-size
+
+// line-height
+
+// colors
+
+// Обнуление, общие параметры
+@import 'base/null';
+@import 'base/mixins';
+
+// Оболочка
+body {
+	&.lock {
+		overflow: hidden;
+	}
+}
+
+// Основная сетка
+.container {
+	max-width: ($containerWidth + $containerPadding) + px;
+	width: 100%;
+	margin: 0 auto;
+	padding: 0 ($containerSidePadding + px);
+
+	@media (max-width: em($breakpoint1400)) {
+		max-width: rem(1100);
+	}
+
+	@media (max-width: em($breakpoint992)) {
+		max-width: rem(970);
+	}
+
+	@media (max-width: em($breakpoint768)) {
+		max-width: rem(750);
+	}
+
+	@media (max-width: em($breakpoint480)) {
+		max-width: none;
+	}
+}
+
+.vertical-indent {
+	&--xs {
+		padding-top: 0px;
+		padding-bottom: 0px;
+	}
+	&--s {
+		padding-top: 0px;
+		padding-bottom: 0px;
+	}
+	&--m {
+		padding-top: 0px;
+		padding-bottom: 0px;
+	}
+	&--l {
+		padding-top: 0px;
+		padding-bottom: 0px;
+	}
+	&--xl {
+		padding-top: 0px;
+		padding-bottom: 0px;
+
+	}
+	@media (max-width: $breakpoint1200) {
+	}
+	@media (max-width: $breakpoint992) {
+	}
+	@media (max-width: $breakpoint768) {
+	}
+}
+
+// классы для вставки 
+// vertical-indent vertical-indent--xs
+// vertical-indent vertical-indent--s
+// vertical-indent vertical-indent--m
+// vertical-indent vertical-indent--l
+// vertical-indent vertical-indent--xl
+
+// Подключение файлов/стилей/страниц и элементов
+
+@import "base/ui";
+@import "common";
+@import "header";
+@import "home";
+@import "footer";
+
+// Основные элементы
+// Пример: 
+
+// <-- HTML -->
+// <main class="page page__home">
+// 	<section class="page__main-block"></section>
+// </main>
+// <-- / HTML -->
+
+// <-- CSS -->
+// .page {
+
+// 	&__home {
+// 	}
+
+// 	&__main-block {
+// 	}
+// }
+// <-- / CSS -->
